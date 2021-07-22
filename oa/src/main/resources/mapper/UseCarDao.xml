@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsy.oa.dao.UseCarDao">
+
+    <resultMap type="com.tsy.oa.entity.UseCar" id="UseCarMap">
+        <id property="useid" column="useid" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="applicant" column="applicant" jdbcType="VARCHAR"/>
+        <result property="usecarEmp" column="usecar_emp" jdbcType="VARCHAR"/>
+        <result property="usecarDept" column="usecar_dept" jdbcType="VARCHAR"/>
+        <result property="vehicle" column="vehicle" jdbcType="VARCHAR"/>
+        <result property="driver" column="driver" jdbcType="VARCHAR"/>
+        <result property="stardate" column="stardate" jdbcType="TIMESTAMP"/>
+        <result property="enddate" column="enddate" jdbcType="TIMESTAMP"/>
+        <result property="reasons" column="reasons" jdbcType="VARCHAR"/>
+        <result property="approvalState" column="approval_state" jdbcType="VARCHAR"/>
+        <result property="emerg" column="emerg" jdbcType="INTEGER"/>
+        <association property="car" javaType="com.tsy.oa.entity.Car">
+            <id property="carid" column="carid" jdbcType="INTEGER"/>
+            <result property="numberModel" column="number_model" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+
+    <!--查询车辆使用情况-->
+    <select id="selectUseCar" resultMap="UseCarMap">
+        select * from use_car u
+        left join  car c on u.carid=c.carid
+        order by u.useid
+    </select>
+
+    <!--  新增用车申请-->
+    <insert id="inserUseCar" parameterType="com.tsy.oa.entity.UseCar" useGeneratedKeys="true" keyProperty="useid">
+        insert into use_car(title,applicant,usecar_emp,usecar_dept,vehicle,driver,reasons,emerg)
+        values (#{title},#{applicant},#{usecarEmp},#{usecarDept},#{vehicle},#{driver},#{reasons},#{emerg})
+    </insert>
+
+    <!--高级查询-->
+    <select id="selectBylikeUseCar" resultMap="UseCarMap">
+        select * from use_car u
+        left join  car c on u.carid=c.carid
+        <where>
+            <if test="numberModel!=null || numberModel!=''">
+                and c.number_model like concat('%',#{numberModel},'%')
+            </if>
+        </where>
+        order by u.useid
+    </select>
+
+</mapper>
+

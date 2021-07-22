@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsy.oa.dao.SysUserDao">
+
+    <resultMap type="com.tsy.oa.entity.SysUser" id="SysUserMap">
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="uCode" column="u_code" jdbcType="VARCHAR"/>
+        <result property="uName" column="u_name" jdbcType="VARCHAR"/>
+        <result property="uPass" column="u_pass" jdbcType="VARCHAR"/>
+        <result property="uDept" column="u_dept" jdbcType="INTEGER"/>
+        <result property="isdisabled" column="isdisabled" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="selectUserByName" resultMap="SysUserMap">
+    select * from sys_user where u_name =#{username}
+  </select>
+
+
+</mapper>
+

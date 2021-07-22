@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsy.oa.dao.CarDao">
+
+    <resultMap type="com.tsy.oa.entity.Car" id="CarMap">
+        <id property="carid" column="carid" jdbcType="INTEGER"/>
+        <result property="carType" column="car_type" jdbcType="VARCHAR"/>
+        <result property="cost" column="cost" jdbcType="INTEGER"/>
+        <result property="numberModel" column="number_model" jdbcType="VARCHAR"/>
+        <result property="carPrice" column="car_price" jdbcType="INTEGER"/>
+        <result property="buyDate" column="buy_date" jdbcType="TIMESTAMP"/>
+        <result property="engineNumber" column="engine_number" jdbcType="INTEGER"/>
+        <result property="driver" column="driver" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="ccsState" column="ccs_state" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询未封存车辆-->
+    <select id="selectYesCar" resultMap="CarMap">
+        select * from car
+        where ccs_state='false'
+        order by carid
+    </select>
+
+    <!--查询已封存车辆-->
+    <select id="selectNoCar" resultMap="CarMap">
+        select * from car
+        where ccs_state='true'
+        order by carid
+    </select>
+
+
+    <!--  新增车辆-->
+    <insert id="inserCar" parameterType="com.tsy.oa.entity.Car" useGeneratedKeys="true" keyProperty="carid">
+        insert into car(car_type,cost,number_model,car_price,engine_number,driver,remark,ccs_state)
+        values (#{carType},#{cost},#{numberModel},#{carPrice},#{engineNumber},#{driver},#{remark},#{ccsState})
+    </insert>
+</mapper>
+
