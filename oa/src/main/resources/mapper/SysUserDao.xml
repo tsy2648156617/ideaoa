@@ -11,6 +11,12 @@
         <result property="isdisabled" column="isdisabled" jdbcType="INTEGER"/>
     </resultMap>
 
+    <select id="queryUserIdByUserName" resultType="java.lang.String">
+        select uid
+        from sys_user
+        where u_name=#{userName}
+    </select>
+
     <select id="selectUserByName" resultMap="SysUserMap">
     select * from sys_user where u_name =#{username}
   </select>
