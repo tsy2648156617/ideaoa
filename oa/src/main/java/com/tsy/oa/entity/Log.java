@@ -1,7 +1,9 @@
 package com.tsy.oa.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 
@@ -11,6 +13,8 @@ import java.sql.Timestamp;
  * @Description This is description of class
  * @Since version-1.0
  */
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Log {
     /**
