@@ -36,4 +36,10 @@ public class EmpRegularizationController {
         return classtypeVoPageInfo;
     }
 
+    //    新增车辆
+    @PostMapping("/inserEmpRegularization")
+    public Integer inserEmpRegularization(@RequestBody EmpRegularization empRegularization){
+        return empRegularizationService.inserEmpRegularization(empRegularization);
+    }
+
 }
