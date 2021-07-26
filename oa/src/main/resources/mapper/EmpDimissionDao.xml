@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsy.oa.dao.EmpDimissionDao">
+
+    <resultMap type="com.tsy.oa.entity.EmpDimission" id="EmpDimissionMap">
+        <result property="dimissionid" column="dimissionid" jdbcType="INTEGER"/>
+        <result property="dimissionFlowid" column="dimission_flowid" jdbcType="VARCHAR"/>
+        <result property="applicant" column="applicant" jdbcType="VARCHAR"/>
+        <result property="applyDept" column="apply_dept" jdbcType="VARCHAR"/>
+        <result property="nowJop" column="now_jop" jdbcType="VARCHAR"/>
+        <result property="submitDate" column="submit_date" jdbcType="TIMESTAMP"/>
+        <result property="dimissionReason" column="dimission_reason" jdbcType="VARCHAR"/>
+        <result property="flowState" column="flow_state" jdbcType="INTEGER"/>
+    </resultMap>
+    <!-- 查询调岗信息-->
+    <select id="selectEmpDimission" resultMap="EmpDimissionMap">
+        select * from emp_dimission
+        order by dimissionid
+    </select>
+
+
+</mapper>
+

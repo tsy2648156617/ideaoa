@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsy.oa.dao.DeptRedeployDao">
+
+    <resultMap type="com.tsy.oa.entity.DeptRedeploy" id="DeptRedeployMap">
+        <id property="redeployid" column="redeployid" jdbcType="INTEGER"/>
+        <result property="redeployFlowid" column="redeploy_flowid" jdbcType="VARCHAR"/>
+        <result property="applicant" column="applicant" jdbcType="VARCHAR"/>
+        <result property="oldDept" column="old_dept" jdbcType="VARCHAR"/>
+        <result property="oldJop" column="old_jop" jdbcType="VARCHAR"/>
+        <result property="newDept" column="new_dept" jdbcType="VARCHAR"/>
+        <result property="newJop" column="new_jop" jdbcType="VARCHAR"/>
+        <result property="flowState" column="flow_state" jdbcType="INTEGER"/>
+    </resultMap>
+    <!-- 查询调岗信息-->
+    <select id="selectDeptRedeploy" resultMap="DeptRedeployMap">
+        select * from dept_redeploy
+        order by redeployid
+    </select>
+
+
+</mapper>
+

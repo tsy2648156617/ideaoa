@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -57,5 +56,26 @@ public class SysUserController {
 
     }
 
+    //查询用户信息
+    @GetMapping("/selectSysUser")
+    public List<SysUser> selectSysUser(){
+        return sysUserService.selectSysUser();
+    }
+
+    //     高级查询
+    @GetMapping("/selectBylikeSysUser")
+    public List<SysUser> selectBylikeSysUser(@RequestParam(value ="uCode",required = false) String uCode,
+                                                    @RequestParam(value ="uName",required = false) String uName,
+                                                    @RequestParam(value ="dname",required = false) String dname,
+                                                    @RequestParam(value ="isdisabled",required = false) Integer isdisabled){
+        List<SysUser> entityPage =sysUserService.selectBylikeSysUser(uCode,uName,dname,isdisabled);
+        return entityPage;
+    }
+
+    //新增用户
+    @PostMapping("/insertSysUser")
+    public Integer insertSysUser(@RequestBody SysUser sysUser){
+        return sysUserService.insertSysUser(sysUser);
+    }
 
 }

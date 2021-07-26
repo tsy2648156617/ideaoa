@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsy.oa.dao.SysRoleDao">
+
+    <resultMap type="com.tsy.oa.entity.SysRole" id="SysRoleMap">
+        <id property="roleId" column="role_id" jdbcType="INTEGER"/>
+        <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="founder" column="founder" jdbcType="VARCHAR"/>
+        <result property="foundTime" column="found_time" jdbcType="TIMESTAMP"/>
+        <result property="updateName" column="update_name" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="timeliness" column="timeLiness" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 查询角色信息-->
+    <select id="selectSysRole" resultMap="SysRoleMap">
+        select * from sys_role
+        order by role_id
+    </select>
+
+    <!--高级查询-->
+    <select id="selectBylikeSysRole" resultMap="SysRoleMap">
+        select * from sys_role
+        <where>
+            <if test="roleName!=null || roleName!=''">
+                and role_name like concat('%',#{roleName},'%')
+            </if>
+        </where>
+        order by role_id
+    </select>
+    <!-- 新增角色-->
+    <insert id="insertSysRole" parameterType="com.tsy.oa.entity.SysRole" useGeneratedKeys="true" keyProperty="roleId">
+        insert into sys_role(role_name,remark)
+        values (#{roleName},#{u_name})
+    </insert>
+
+</mapper>
+

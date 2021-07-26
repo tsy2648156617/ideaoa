@@ -28,6 +28,10 @@ public class SysRole implements Serializable {
      */
     private String roleName;
     /**
+     * 备注
+     */
+    private String remark;
+    /**
      * 创建人
      */
     private String founder;

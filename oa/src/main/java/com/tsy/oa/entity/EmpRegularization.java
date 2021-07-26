@@ -69,6 +69,10 @@ public class EmpRegularization implements Serializable {
      * 转正状态
      */
     private Integer regularizationState;
+    /**
+     * 转正流程ID
+     */
+    private String regularizationFlowid;
 
 
 }

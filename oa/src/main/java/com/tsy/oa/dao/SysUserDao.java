@@ -22,7 +22,16 @@ public interface SysUserDao {
 
     SysUser selectUserByName(@Param("username") String username);
 
+    //查询用户信息
+    List<SysUser> selectSysUser();
 
+    /**
+     搞鸡查询
+     */
+    List<SysUser> selectBylikeSysUser(@Param("uCode") String uCode, @Param("uName") String uName, @Param("dname") String dname, @Param("isdisabled") Integer isdisabled);
+
+    //新增用户
+    Integer insertSysUser(SysUser sysUser);
 
 }
 

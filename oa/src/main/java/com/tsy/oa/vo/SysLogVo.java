@@ -1,7 +1,7 @@
 package com.tsy.oa.vo;
 
-import com.tsy.oa.entity.SysUser;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.tsy.oa.entity.SysUser;
 import lombok.Data;
 
 import java.sql.Timestamp;

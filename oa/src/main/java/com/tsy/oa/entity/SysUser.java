@@ -17,17 +17,17 @@ import java.io.Serializable;
 @Data
 public class SysUser implements Serializable {
     private static final long serialVersionUID = 605668132992517260L;
-
+    //用户id
     private Integer uid;
-
+    //用户编号
     private String uCode;
-
+    //用户名称
     private String uName;
-
+    //用户密码
     private String uPass;
-
-    private Integer uDept;
-
+    //所属部门
+    private Dept dept;
+    //是否禁用
     private Integer isdisabled;
 
 
