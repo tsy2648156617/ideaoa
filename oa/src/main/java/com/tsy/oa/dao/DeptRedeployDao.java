@@ -18,6 +18,9 @@ public interface DeptRedeployDao {
     //查询调岗信息
     List<DeptRedeploy> selectDeptRedeploy();
 
+    //新增调岗申请
+    Integer inserDeptRedeploy(DeptRedeploy deptRedeploy);
+
 
 }
 

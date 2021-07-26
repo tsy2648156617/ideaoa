@@ -23,5 +23,11 @@
         order by regularizationid
     </select>
 
+    <!--  新增转正申请-->
+    <insert id="inserEmpRegularization" parameterType="com.tsy.oa.entity.EmpRegularization" useGeneratedKeys="true" keyProperty="regularizationid">
+        insert into emp_regularization(title,applicant,apply_dept,regularization_emp,regularization_dept,intodate,apply_date,jop_understand,growup,deficiency)
+        values (#{title},#{applicant},#{applyDept},#{regularizationEmp},#{regularizationDept},#{intodate},#{applyDate},#{jopUnderstand},#{growup},#{deficiency})
+    </insert>
+
 </mapper>
 

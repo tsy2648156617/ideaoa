@@ -18,5 +18,8 @@ public interface EmpDimissionDao {
     //查询员工离职信息
     List<EmpDimission> selectEmpDimission();
 
+    //新增离职申请
+    Integer inserEmpDimission(EmpDimission empDimission);
+
 }
 

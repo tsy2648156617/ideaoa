@@ -18,6 +18,12 @@
         order by redeployid
     </select>
 
+    <!--  新增调岗申请-->
+    <insert id="inserDeptRedeploy" parameterType="com.tsy.oa.entity.DeptRedeploy" useGeneratedKeys="true" keyProperty="redeployid">
+        insert into dept_redeploy(applicant,old_dept,old_jop,new_dept,new_jop)
+        values (#{applicant},#{oldDept},#{oldJop},#{newDept},#{newJop})
+    </insert>
+
 
 </mapper>
 

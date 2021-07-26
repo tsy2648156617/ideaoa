@@ -36,6 +36,12 @@ public class DeptRedeployController {
         return classtypeVoPageInfo;
     }
 
+    //    新增调岗
+    @PostMapping("/inserDeptRedeploy")
+    public Integer inserDeptRedeploy(@RequestBody DeptRedeploy deptRedeploy){
+        return deptRedeployService.inserDeptRedeploy(deptRedeploy);
+    }
+
 
 
 }

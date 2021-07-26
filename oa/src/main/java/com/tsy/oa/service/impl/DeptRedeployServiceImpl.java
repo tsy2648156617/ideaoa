@@ -26,5 +26,11 @@ public class DeptRedeployServiceImpl implements DeptRedeployService {
         return deptRedeployDao.selectDeptRedeploy();
     }
 
+    //新增调岗信息
+    @Override
+    public Integer inserDeptRedeploy(DeptRedeploy deptRedeploy) {
+        return deptRedeployDao.inserDeptRedeploy(deptRedeploy);
+    }
+
 
 }

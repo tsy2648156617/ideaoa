@@ -15,4 +15,7 @@ public interface DeptRedeployService {
     //查询调岗信息
     List<DeptRedeploy> selectDeptRedeploy();
 
+    //新增调岗信息
+    Integer inserDeptRedeploy(DeptRedeploy deptRedeploy);
+
 }

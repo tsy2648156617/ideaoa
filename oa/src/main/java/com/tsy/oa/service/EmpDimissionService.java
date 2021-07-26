@@ -15,4 +15,7 @@ public interface EmpDimissionService {
     //查询员工离职信息
     List<EmpDimission> selectEmpDimission();
 
+    //新增离职信息
+    Integer inserEmpDimission(EmpDimission empDimission);
+
 }

@@ -3,7 +3,7 @@
 <mapper namespace="com.tsy.oa.dao.EmpDimissionDao">
 
     <resultMap type="com.tsy.oa.entity.EmpDimission" id="EmpDimissionMap">
-        <result property="dimissionid" column="dimissionid" jdbcType="INTEGER"/>
+        <id property="dimissionid" column="dimissionid" jdbcType="INTEGER"/>
         <result property="dimissionFlowid" column="dimission_flowid" jdbcType="VARCHAR"/>
         <result property="applicant" column="applicant" jdbcType="VARCHAR"/>
         <result property="applyDept" column="apply_dept" jdbcType="VARCHAR"/>
@@ -12,11 +12,17 @@
         <result property="dimissionReason" column="dimission_reason" jdbcType="VARCHAR"/>
         <result property="flowState" column="flow_state" jdbcType="INTEGER"/>
     </resultMap>
-    <!-- 查询调岗信息-->
+    <!-- 查询离职信息-->
     <select id="selectEmpDimission" resultMap="EmpDimissionMap">
         select * from emp_dimission
         order by dimissionid
     </select>
+
+    <!--  新增离职申请-->
+    <insert id="inserEmpDimission" parameterType="com.tsy.oa.entity.EmpDimission" useGeneratedKeys="true" keyProperty="dimissionid">
+        insert into emp_dimission(applicant,apply_dept,now_jop,dimission_reason)
+        values (#{applicant},#{applyDept},#{nowJop},#{dimissionReason})
+    </insert>
 
 
 </mapper>

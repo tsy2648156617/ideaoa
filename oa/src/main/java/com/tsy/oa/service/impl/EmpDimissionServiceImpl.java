@@ -26,4 +26,10 @@ public class EmpDimissionServiceImpl implements EmpDimissionService {
         return empDimissionDao.selectEmpDimission();
     }
 
+    //新增调岗信息
+    @Override
+    public Integer inserEmpDimission(EmpDimission empDimission) {
+        return empDimissionDao.inserEmpDimission(empDimission);
+    }
+
 }

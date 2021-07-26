@@ -3,6 +3,7 @@ package com.tsy.oa.service.impl;
 import com.tsy.oa.entity.EmpRegularization;
 import com.tsy.oa.dao.EmpRegularizationDao;
 import com.tsy.oa.entity.SysUser;
+import com.tsy.oa.entity.UseCar;
 import com.tsy.oa.service.EmpRegularizationService;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,13 @@ import java.util.List;
 public class EmpRegularizationServiceImpl implements EmpRegularizationService {
     @Resource
     private EmpRegularizationDao empRegularizationDao;
+
+    //新增转正信息
+    @Override
+    public Integer inserEmpRegularization(EmpRegularization empRegularization) {
+        return empRegularizationDao.inserEmpRegularization(empRegularization);
+    }
+
     //查询转正信息
     @Override
     public List<EmpRegularization> selectEmpRegularization() {
