@@ -3,6 +3,7 @@ package com.tsy.oa.controller;
 import com.tsy.oa.entity.SysRole;
 import com.tsy.oa.entity.SysUser;
 import com.tsy.oa.service.SysRoleService;
+import com.tsy.oa.vo.AjaxResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class SysRoleController {
 
     //     高级查询
     @GetMapping("/selectBylikeSysRole")
-    public List<SysRole> selectBylikeSysRole(@RequestParam(value ="roleName",required = false) String roleName){
+    public List<SysRole> selectBylikeSysRole(@RequestParam("roleName") String roleName){
         List<SysRole> entityPage =sysRoleService.selectBylikeSysRole(roleName);
         return entityPage;
     }
@@ -45,5 +46,12 @@ public class SysRoleController {
         return sysRoleService.insertSysRole(sysRole);
     }
 
+    //删除用户
+    @DeleteMapping("/delRoleAnd/{roleId}")
+    public AjaxResponse delRole(@PathVariable String roleId){
+        System.out.println(roleId);
+        sysRoleService.delRole(roleId);
+        return AjaxResponse.success();
+    }
 
 }

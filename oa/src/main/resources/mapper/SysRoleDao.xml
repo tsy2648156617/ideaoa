@@ -35,5 +35,9 @@
         values (#{roleName},#{u_name})
     </insert>
 
+    <!--    删除角色-->
+    <delete id="delRole" parameterType="java.lang.String">
+    delete from sys_role where role_id=#{roleId}
+  </delete>
 </mapper>
 

@@ -78,4 +78,13 @@ public class SysUserController {
         return sysUserService.insertSysUser(sysUser);
     }
 
+    //删除用户
+    @DeleteMapping("/delSysUser/{uid}")
+    public AjaxResponse delSysUser(@PathVariable String uid){
+        System.out.println(uid);
+        sysUserService.delSysUser(uid);
+        return AjaxResponse.success();
+    }
+
+
 }

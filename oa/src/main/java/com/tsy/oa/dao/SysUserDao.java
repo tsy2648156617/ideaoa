@@ -32,6 +32,7 @@ public interface SysUserDao {
 
     //新增用户
     Integer insertSysUser(SysUser sysUser);
-
+    //删除角色
+    void delSysUser(String  uid);
 }
 

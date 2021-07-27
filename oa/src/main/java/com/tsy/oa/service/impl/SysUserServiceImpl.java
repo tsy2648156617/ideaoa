@@ -47,6 +47,12 @@ public class SysUserServiceImpl implements SysUserService {
             return sysUserDao.insertSysUser(sysUser);
         }
 
+    //删除用户
+    @Override
+    public void delSysUser(String uid) {
+        sysUserDao.delSysUser(uid);
+    }
+
 
 
 }

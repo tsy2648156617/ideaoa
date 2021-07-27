@@ -22,4 +22,7 @@ public interface SysRoleService {
 
     //新增角色
     Integer insertSysRole(SysRole sysRole);
+
+    //删除角色
+    void delRole(String roleId);
 }

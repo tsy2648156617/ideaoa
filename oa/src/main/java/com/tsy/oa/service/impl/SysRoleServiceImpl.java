@@ -40,4 +40,10 @@ public class SysRoleServiceImpl implements SysRoleService {
         return sysRoleDao.insertSysRole(sysRole);
     }
 
+    //删除用户
+    @Override
+    public void delRole(String roleId) {
+        sysRoleDao.delRole(roleId);
+    }
+
 }
