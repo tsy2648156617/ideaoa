@@ -27,7 +27,7 @@ public class SysRoleController {
     @Resource
     private SysRoleService sysRoleService;
 
-    //查询用户信息
+    //查询角色信息
     @GetMapping("/selectSysRole")
     public List<SysRole> selectSysRole(){
         return sysRoleService.selectSysRole();
@@ -40,13 +40,13 @@ public class SysRoleController {
         return entityPage;
     }
 
-    //新增用户
+    //新增角色
     @PostMapping("/insertSysRole")
     public Integer insertSysRole(@RequestBody SysRole sysRole){
         return sysRoleService.insertSysRole(sysRole);
     }
 
-    //删除用户
+    //删除角色
     @DeleteMapping("/delRoleAnd/{roleId}")
     public AjaxResponse delRole(@PathVariable String roleId){
         System.out.println(roleId);

@@ -7,6 +7,7 @@
         <result property="uCode" column="u_code" jdbcType="VARCHAR"/>
         <result property="uName" column="u_name" jdbcType="VARCHAR"/>
         <result property="uPass" column="u_pass" jdbcType="VARCHAR"/>
+        <result property="deptid" column="deptid" jdbcType="INTEGER"/>
         <result property="isdisabled" column="isdisabled" jdbcType="INTEGER"/>
         <association property="dept" javaType="com.tsy.oa.entity.Dept">
             <id property="deptid" column="deptid" jdbcType="INTEGER"/>
@@ -55,7 +56,7 @@
 <!--    新增用户-->
     <insert id="insertSysUser" parameterType="com.tsy.oa.entity.SysUser" useGeneratedKeys="true" keyProperty="uid">
         insert into sys_user(u_code,u_name,u_pass,deptid,isdisabled)
-        values (#{u_code},#{u_name},#{u_pass},#{deptid},#{isdisabled})
+        values (#{uCode},#{uName},#{uPass},#{deptid},#{isdisabled})
     </insert>
 
     <!--    删除用户-->

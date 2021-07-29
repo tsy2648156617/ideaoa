@@ -27,6 +27,7 @@ public class SysUser implements Serializable {
     private String uPass;
     //所属部门
     private Dept dept;
+    private Integer deptid;
     //是否禁用
     private Integer isdisabled;
 
